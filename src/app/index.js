@@ -3,7 +3,7 @@
  */
 
 // Import the whole Bootstrap JS bundle
-import 'bootstrap';
+// import 'bootstrap';
 
 // Or just what you need to keep your vendor bundle small
 // import 'bootstrap/js/dist/util';
@@ -18,6 +18,8 @@ import {consoleErrorFix, ieViewportFix} from './base/base';
 // Import our Sass entrypoint to create the CSS app bundle
 import '../assets/scss/index.scss';
 
+require('viewport-units-buggyfill').init();
+
 $(async () => {
 	// Wait with further execution until needed polyfills are loaded.
 	await applyPolyfills();
@@ -25,10 +27,27 @@ $(async () => {
 	consoleErrorFix();
 	ieViewportFix();
 
-	console.log('YaY, my first ES6-Module !!!!');
-	if (PRODUCTION) { // eslint-disable-line no-undef
-		console.log('Prod');
-	} else {
-		console.log('Dev');
-	}
+	const links = document.querySelectorAll('[link-to]');
+
+	links.forEach((element) => {
+		element.link = element.getAttribute('link-to');
+		element.addEventListener('click', () => {
+			window.location.href = element.link;
+		});
+	});
+
+	const backgrounds = document.querySelectorAll('div.lazy');
+
+	backgrounds.forEach((element) => {
+		const link = element.getAttribute('data-src');
+		element.style.backgroundImage = 'url(' + link + ')';
+		setTimeout(() => {
+			element.classList.add('loaded');
+		}, 50);
+	});
+
+	setTimeout(() => {
+		window.location.href = links[0].link;
+	}, 5000);
+
 });

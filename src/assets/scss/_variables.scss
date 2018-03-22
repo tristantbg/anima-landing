@@ -12,6 +12,11 @@
 //			font-size: @font-size-base - 1;
 //		}
 //	}
+
+$screen-xs-max: 750px;
+$screen-sm-max: 1024px;
+$screen-lg-min: 1600px;
+
 $retina: "(-webkit-min-device-pixel-ratio: 1.5)",
 	"(min--moz-device-pixel-ratio: 1.5)",
 	"(-o-min-device-pixel-ratio: 3/2)",

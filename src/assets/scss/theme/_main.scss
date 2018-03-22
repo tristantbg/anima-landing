@@ -1,0 +1,71 @@
+@font-face {
+	font-family: 'IsarLight';
+	src: url('/assets/fonts/IsarLight.eot');
+	src:
+		url('/assets/fonts/IsarLight.eot') format('embedded-opentype'),
+		url('/assets/fonts/IsarLight.woff2') format('woff2'),
+		url('/assets/fonts/IsarLight.woff') format('woff'),
+		url('/assets/fonts/IsarLight.svg#IsarLight') format('svg');
+}
+
+@font-face {
+	font-family: 'SimplonMono';
+	src: url('/assets/fonts/SimplonMono.eot');
+	src:
+		url('/assets/fonts/SimplonMono.eot') format('embedded-opentype'),
+		url('/assets/fonts/SimplonMono.woff2') format('woff2'),
+		url('/assets/fonts/SimplonMono.woff') format('woff'),
+		url('/assets/fonts/SimplonMono.svg#SimplonMono') format('svg');
+}
+
+.lazy {
+	transition: opacity 600ms ease;
+	opacity: 0;
+
+	&.loaded {
+		opacity: 1;
+	}
+}
+
+body {
+	font-family: 'SimplonMono', sans-serif;
+	margin: 0;
+}
+
+header {
+	font-family: 'IsarLight', serif;
+	position: fixed;
+	top: 5rem;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	z-index: 10;
+	pointer-events: none;
+}
+
+footer {
+	position: fixed;
+	bottom: 5rem;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	z-index: 10;
+	padding: 0 30%;
+}
+
+#image {
+	cursor: pointer;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-position: center;
+}
+
+@media #{$md-and-below} {
+	#image {
+		background-position: 11% center;
+	}
+}

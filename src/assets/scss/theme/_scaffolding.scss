@@ -18,21 +18,77 @@
 @viewport { width: device-width; }
 // stylelint-enable
 
-html {
-	// Get properties related to sticky footer. See _footer.scss
-	@include footer-htmlProps();
+* {
+	box-sizing: border-box;
+}
+
+a,
+a:hover,
+a:visited {
+	text-decoration: none;
+	color: #000;
+}
+
+p {
+	text-transform: uppercase;
+	margin: 0;
+	line-height: 1.4;
+	letter-spacing: 0.2em;
+}
+
+h1 {
+	margin: 0;
+	font-size: 12rem;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	font-weight: normal;
+}
+
+@media #{$xl-and-above} {
+	html {
+		font-size: 0.15vw;
+	}
 }
 
 body {
-	overflow-y: scroll;
-	padding-top: 70px;
-	padding-bottom: 30px;
 
 	// Optimize legibility on Retina displays
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	font-size: 4rem;
 
 	// Get properties related to sticky footer. See _footer.scss
-	@include footer-bodyProps();
+	// @include footer-bodyProps();
 }
+
+@media #{$lg-and-below} {
+	html {
+		font-size: 3px;
+	}
+}
+
+@media #{$md-and-below} {
+	body {
+		font-size: 5rem;
+	}
+
+	html {
+		font-size: 3px;
+	}
+
+	h1 {
+		font-size: 12rem;
+	}
+}
+
+@media #{$sm-and-below} {
+	body {
+		font-size: 5.5rem;
+	}
+
+	html {
+		font-size: 2px;
+	}
+}
+

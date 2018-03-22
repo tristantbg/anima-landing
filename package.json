@@ -49,7 +49,8 @@
     "core-js": "^2.5.3",
     "jquery": "^3.3.1",
     "popper.js": "^1.14.1",
-    "promise-polyfill": "^7.1.0"
+    "promise-polyfill": "^7.1.0",
+    "viewport-units-buggyfill": "^0.6.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
