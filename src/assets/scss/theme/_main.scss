@@ -1,71 +1,156 @@
 @font-face {
-	font-family: 'IsarLight';
-	src: url('/assets/fonts/IsarLight.eot');
-	src:
-		url('/assets/fonts/IsarLight.eot') format('embedded-opentype'),
-		url('/assets/fonts/IsarLight.woff2') format('woff2'),
-		url('/assets/fonts/IsarLight.woff') format('woff'),
-		url('/assets/fonts/IsarLight.svg#IsarLight') format('svg');
+    font-family: 'THGroteskLight';
+    src: url('/assets/fonts/THGroteskLight.eot');
+    src: url('/assets/fonts/THGroteskLight.eot') format('embedded-opentype'), url('/assets/fonts/THGroteskLight.woff2') format('woff2'), url('/assets/fonts/THGroteskLight.woff') format('woff'), url('/assets/fonts/THGroteskLight.svg#IsarLight') format('svg');
 }
-
-@font-face {
-	font-family: 'SimplonMono';
-	src: url('/assets/fonts/SimplonMono.eot');
-	src:
-		url('/assets/fonts/SimplonMono.eot') format('embedded-opentype'),
-		url('/assets/fonts/SimplonMono.woff2') format('woff2'),
-		url('/assets/fonts/SimplonMono.woff') format('woff'),
-		url('/assets/fonts/SimplonMono.svg#SimplonMono') format('svg');
+body.intro {
+    overflow: hidden;
 }
-
 .lazy {
-	transition: opacity 600ms ease;
-	opacity: 0;
-
-	&.loaded {
-		opacity: 1;
-	}
+    transition: opacity 600ms ease;
+    opacity: 0;
+    &.loaded {
+        opacity: 1;
+    }
 }
-
 body {
-	font-family: 'SimplonMono', sans-serif;
-	margin: 0;
+    font-family: 'THGroteskLight', 'Helvetica', sans-serif;
+    margin: 0;
+    &.intro {
+        overflow: hidden;
+    }
 }
-
-header {
-	font-family: 'IsarLight', serif;
-	position: fixed;
-	top: 5rem;
-	left: 0;
-	width: 100%;
-	text-align: center;
-	z-index: 10;
-	pointer-events: none;
+#loader {
+    background: #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 500;
 }
-
-footer {
-	position: fixed;
-	bottom: 5rem;
-	left: 0;
-	width: 100%;
-	text-align: center;
-	z-index: 10;
-	padding: 0 30%;
+#intro-scan {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    #scanner {
+        overflow: hidden;
+        background: #000;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        mix-blend-mode: multiply;
+        #scanner-light {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(#000 0%, #fff 80%, #000);
+        }
+    }
+    .flickity-viewport, .flickity-slider {
+        height: 100%
+    }
+    .image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        transition: opacity 100ms ease;
+        // filter: grayscale(1);
+        &:not(.lazyloaded) {
+            opacity: 0
+        }
+    }
 }
-
-#image {
-	cursor: pointer;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-size: cover;
-	background-position: center;
+section {
+    height: 100vh;
+    width: 100%;
+    display: block;
+    float: left;
 }
-
+#intro {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 11rem;
+    line-height: 0.8;
+    white-space: nowrap;
+    cursor: pointer;
+    #motto {
+        mix-blend-mode: difference;
+        position: relative;
+        z-index: 10;
+    }
+}
+.logo {
+    height: 10rem;
+    width: 10rem;
+    display: block;
+    float: left;
+    svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+        * {
+            fill: currentColor;
+        }
+    }
+    &+.logo {
+        margin-left: 0.5rem
+    }
+}
+#circle {
+    animation: rotate 30s linear infinite reverse;
+    transform-origin: 15px 15px;
+}
+#left {
+    overflow: hidden;
+}
+#right {
+    overflow-y: scroll;
+    hr {
+        margin: 0 0 0.7em;
+    }
+}
+.upper {
+    text-transform: uppercase;
+}
+hr {
+    display: block;
+    width: 100%;
+    float: left;
+    height: 0;
+    border: none;
+    border-top: 1px solid;
+}
 @media #{$md-and-below} {
-	#image {
-		background-position: 11% center;
-	}
+    #intro, #about {
+        padding: 2rem;
+    }
+    #intro {
+        font-size: 3.5rem;
+        line-height: 0.9;
+    }
+    #logos {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .logo {
+        width: 42vw;
+        height: 42vw;
+    }
 }

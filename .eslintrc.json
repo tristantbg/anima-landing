@@ -9,7 +9,14 @@
       "files": ["build/*.js"],
       "rules": {
         "no-console": "off",
-        "unicorn/no-process-exit": "off"
+        "unicorn/no-process-exit": "off",
+        "space-infix-ops": "off",
+        "no-unused-vars": "off",
+        "eqeqeq": "off",
+        "space-in-parens": "off",
+        "no-mixed-operators": "off",
+        "no-unused-vars": "off",
+        "no-abusive-eslint-disable": "off"
       }
     }
   ]
