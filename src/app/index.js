@@ -129,6 +129,7 @@ const intro = () => {
 const hideIntro = () => {
 	document.body.classList.remove('intro');
 	document.getElementById('intro').style.display = 'none';
+	window.scroll(0, 0);
 	stopBodyScrolling(false);
 	introHidden = true;
 };
