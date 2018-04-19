@@ -6,3 +6,17 @@
     transform: rotate(360deg);
   }
 }
+
+@keyframes cta {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(50%);
+  }
+}
+
+.cta {
+  animation: cta 1s infinite alternate;
+  display: inline-block;
+}

@@ -85,7 +85,7 @@ section {
     align-items: center;
     text-transform: uppercase;
     text-align: center;
-    font-size: 11rem;
+    font-size: 13rem;
     line-height: 0.8;
     white-space: nowrap;
     cursor: pointer;
@@ -146,11 +146,18 @@ hr {
     }
     #logos {
         width: 100%;
-        display: flex;
-        justify-content: space-between;
     }
     .logo {
         width: 42vw;
         height: 42vw;
+        max-width: 20rem;
+        max-height: 20rem;
+    }
+    #fr-time, #la-time {
+      width: 42vw;
+      max-width: 20rem;
+    }
+    #la-time {
+      margin-left: 0.5rem
     }
 }
